@@ -6,12 +6,19 @@ import java.util.Map;
 
 public class SentimentAnalysis {
 	
+	private String text;
 	private int score;
 	private String scoreText;
 	private String rating;
 	private int ratingScale;
 	private List<SentenceSentiment> sentenceSentimentList;
 	
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
 	public int getScore() {
 		return score;
 	}

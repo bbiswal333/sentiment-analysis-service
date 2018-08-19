@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tools.ml.service.SentimentService;
-import com.tools.model.Sentence;
 import com.tools.model.SentimentAnalysis;
 
 @RestController
@@ -23,11 +22,11 @@ public class SentimentController {
 	
 	@PostMapping("/sentiment/analysis")
 	public ResponseEntity<SentimentAnalysis> getSentimentAnalysis(
-			@RequestBody final Sentence sentence ){
+			@RequestBody final SentimentAnalysis sentimentAnalysis ){
 		
-		SentimentAnalysis sentimentAnalysis = sentimentService.getSentimentAnalysis(sentence.getText());
-		if(sentimentAnalysis != null)
-			return new ResponseEntity<SentimentAnalysis>(sentimentAnalysis, HttpStatus.OK);
+		SentimentAnalysis sentimentAnalysis1 = sentimentService.getSentimentAnalysis(sentimentAnalysis.getText());
+		if(sentimentAnalysis1 != null)
+			return new ResponseEntity<SentimentAnalysis>(sentimentAnalysis1, HttpStatus.OK);
 		return errorMessage("Somethin wrong happened!", HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
