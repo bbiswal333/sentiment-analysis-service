@@ -61,7 +61,7 @@ public class SentimentServiceImpl implements SentimentService {
 		
 		//creating Sentiment Analysis
 		SentimentAnalysis sentimentAnalysis = new SentimentAnalysis();
-		
+		sentimentAnalysis.setText(text);
 		sentimentAnalysis.setSentenceSentimentList(sentenceSentimentList);
 		sentimentAnalysis.setScore(sentimentAnalysis.getOverallScore(inputs));
 		sentimentAnalysis.setScoreText(sentimentAnalysis.getOverAllScoreText(sentimentAnalysis.getOverallScore(inputs)));
